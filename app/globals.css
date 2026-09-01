@@ -1,0 +1,346 @@
+@import "tailwindcss";
+
+/* ==========================================================
+   DARK THEME (DEFAULT)
+========================================================== */
+
+:root {
+  --bg: #0f0f10;
+  --surface: #171717;
+  --surface-2: #1f1f20;
+
+  --navbar-bg: rgba(15, 15, 16, 0.88);
+
+  --text: #f5f5f5;
+  --muted: #94a3b8;
+
+  --gold: #ff9d00;
+  --gold-dark: #8a5600;
+
+  --border: #343434;
+  --shadow: rgba(255, 157, 0, 0.08);
+}
+
+/* ==========================================================
+   LIGHT THEME
+========================================================== */
+
+html.light {
+  --bg: #ffffff;
+  --surface: #f8f9fb;
+  --surface-2: #ffffff;
+
+  --navbar-bg: rgba(255, 255, 255, 0.92);
+
+  --text: #111827;
+  --muted: #64748b;
+
+  --gold: #ff9d00;
+  --gold-dark: #b56c00;
+
+  --border: #e5e7eb;
+  --shadow: rgba(255, 157, 0, 0.05);
+}
+
+/* ==========================================================
+   GLOBAL STYLES
+========================================================== */
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Background Pattern */
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255,157,0,.08) 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 35%, rgba(255,157,0,.05) 0 1px, transparent 2px);
+  background-size: 180px 180px, 240px 240px;
+}
+
+html.light body {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255,157,0,.04) 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 35%, rgba(255,157,0,.03) 0 1px, transparent 2px);
+}
+
+section {
+  scroll-margin-top: 80px;
+  transition: background-color .35s ease;
+}
+
+.container {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+/* Typography */
+
+.gold {
+  color: var(--gold);
+}
+
+.section-title {
+  color: var(--text);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  text-align: center;
+  margin-top: 12px;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+/* Cards */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: all .35s ease;
+}
+
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Buttons */
+
+.primary-btn {
+  background: var(--gold);
+  color: black;
+}
+
+.secondary-btn {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Inputs */
+
+input,
+textarea {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  outline: none;
+  transition: .3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(255,157,0,.12);
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 20px;
+}
+
+@media (max-width:768px) {
+  .container {
+    width: min(100% - 24px,1120px);
+  }
+}
+
+
+/* ==========================================================
+   CONTACT SECTION (Govind Style Hover Effect)
+========================================================== */
+
+/* Icons are always orange */
+.contact-icon {
+  color: var(--gold);
+  transition: color 0.3s ease;
+}
+
+/* Labels follow theme */
+.contact-label {
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* URLs/Subtitles are gray by default */
+.contact-value {
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+/* Only URL/Subtitles turn orange on hover */
+.contact-value:hover {
+  color: var(--gold);
+}
+
+/* ==========================================================
+   CONTACT FORM INPUTS (Govind Style)
+========================================================== */
+
+/* Default Input & Textarea */
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  background: #0b0b0d !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Light mode input background */
+html.light .contact-input,
+html.light .contact-textarea {
+  background: #ffffff !important;
+}
+
+/* Orange border when clicked */
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: #ff9d00 !important;
+  box-shadow: 0 0 0 2px rgba(255, 157, 0, 0.2);
+  outline: none;
+}
+
+/* Placeholder color */
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+  color: var(--muted);
+}
+
+/* Chrome Autofill Fix (keeps background black) */
+.contact-input:-webkit-autofill,
+.contact-input:-webkit-autofill:hover,
+.contact-input:-webkit-autofill:focus,
+.contact-textarea:-webkit-autofill,
+.contact-textarea:-webkit-autofill:hover,
+.contact-textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text) !important;
+  -webkit-box-shadow: 0 0 0px 1000px #0b0b0d inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Light mode autofill */
+html.light .contact-input:-webkit-autofill,
+html.light .contact-textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}
+
+
+/* Premium Project Card Hover (Govind Style) */
+
+.project-card {
+  position: relative;
+  transition: all 0.45s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(245, 158, 11, 0),
+    rgba(245, 158, 11, 0.9),
+    rgba(255, 215, 0, 0)
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+
+  /* Border effect */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+
+/* ==========================================================
+   PROJECT CARD HOVER (Govind Style)
+   Golden Glow + Lift + Animated Border
+========================================================== */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  transition: transform 0.45s ease, box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+/* Animated Golden Border */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    transparent,
+    rgba(255, 157, 0, 0.9),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+
+  /* Creates only the border */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Hover Effects */
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 157, 0, 0.45);
+
+  /* Golden Glow */
+  box-shadow:
+    0 0 18px rgba(255, 157, 0, 0.18),
+    0 0 36px rgba(255, 157, 0, 0.08),
+    0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
