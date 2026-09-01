@@ -21,7 +21,7 @@ const coursework = [
 const proficiency = [
   { skill: "Full Stack Development", value: 90 },
   { skill: "AI/ML", value: 85 },
-  { skill: "Mobile Development", value: 80 },
+  { skill: "Cloud Computing", value: 80 },
   { skill: "Problem Solving", value: 95 },
 ];
 
